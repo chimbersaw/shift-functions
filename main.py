@@ -25,7 +25,7 @@ def run(distr: Distribution, ns: List[int] = None, n_plot: int = 10000):
     if ns is None:
         ns = [10, 100, 1000, 10000]
     if distr.name == "SkewNormal":
-        n_plot = 100  # otherwise too heavy(long) computations
+        n_plot = min(n_plot, 100)  # otherwise too heavy(long) computations
 
     d, args = distr.d, distr.args
     name = f"#{run.counter}. {distr.name} distribution"
